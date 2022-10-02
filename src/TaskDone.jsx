@@ -1,14 +1,14 @@
 import React from "react";
 
-const Footer = () => {
+const TaskDone = () => {
   return (
     <div>
-      <div>
+      <div className="my-6">
         <h1 className="text-xl font-semibold ">Things done</h1>
-        <div></div>
+        <div></div>{" "}
       </div>
     </div>
   );
 };
 
-export default Footer;
+export default TaskDone;

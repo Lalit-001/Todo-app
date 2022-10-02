@@ -1,27 +1,22 @@
-import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useState } from "react";
 
-const AddTodo = ({}) => {
-  const [title, setTitle] = useState("");
-  const [titleList, setTitleList] = useState([]);
-
+const AddTodo = ({ setShow, setTitle, setTitleList, title, titleList }) => {
   const handleInputChange = (event) => {
     setTitle(event.target.value);
-    console.log("title is ", title);
   };
 
   const handleSaveButton = () => {
-    if (title === "") {
-      return;
+    if (!title) {
+      setShow(false);
     } else {
       setTitleList([...titleList, title]);
       setTitle("");
+      setShow(false);
     }
   };
-  console.log("title list ", titleList);
 
   return (
-    <form className="flex flex-col px-6 py-4 space-y-3 border border-gray-500 rounded-md shadow-md">
+    <div className="flex flex-col px-6 py-4 space-y-3 border border-gray-500 rounded-md shadow-md">
       <h2 className="text-2xl font-semibold ">Create a todo</h2>
       <input
         onChange={handleInputChange}
@@ -37,14 +32,14 @@ const AddTodo = ({}) => {
         >
           Save
         </button>
-        <Link
-          to="/"
+        <button
+          onClick={() => setShow(false)}
           className="px-4 py-1 font-semibold border border-gray-400 rounded-md"
         >
           Cancel
-        </Link>
+        </button>
       </div>
-    </form>
+    </div>
   );
 };
 
