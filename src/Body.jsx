@@ -8,12 +8,20 @@ const Body = () => {
   const [show, setShow] = useState(false);
   const [title, setTitle] = useState("");
   const [titleList, setTitleList] = useState([]);
-  console.log(title, titleList);
+  const [doneTaskList, setDoneTaskList] = useState([]);
 
   return (
     <div>
       {/* ----------------------todo--------------- */}
-      <Header titleList={titleList} />
+      <Header
+        titleList={titleList}
+        setTitleList={setTitleList}
+        doneTaskList={doneTaskList}
+        setDoneTaskList={setDoneTaskList}
+      />
+
+      {/* -----------------task done------------------- */}
+
       {show ? (
         /* -----------------------form------------------------ */
         <AddTodo
@@ -42,7 +50,13 @@ const Body = () => {
       )}
       {/* // -----------------taskdone--------------- */}
 
-      <TaskDone />
+      <TaskDone
+        title={title}
+        setTitle={setTitle}
+        doneTaskList={doneTaskList}
+        setTitleList={setTitleList}
+        titleList={titleList}
+      />
     </div>
   );
 };

@@ -8,6 +8,7 @@ const AddTodo = ({ setShow, setTitle, setTitleList, title, titleList }) => {
   const handleSaveButton = () => {
     if (!title) {
       setShow(false);
+      return;
     } else {
       setTitleList([...titleList, title]);
       setTitle("");
@@ -25,6 +26,7 @@ const AddTodo = ({ setShow, setTitle, setTitleList, title, titleList }) => {
         placeholder="write an article about xState"
         className="px-4 py-2 border border-gray-400 rounded-md md:w-80 focus:outline-yellow-500 "
       ></input>
+
       <div className="flex gap-3">
         <button
           onClick={handleSaveButton}
